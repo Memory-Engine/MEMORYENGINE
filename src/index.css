@@ -95,9 +95,20 @@
 /* Grid pattern */
 .bg-grid {
   background-image:
-    linear-gradient(hsl(260 20% 15% / 0.3) 1px, transparent 1px),
-    linear-gradient(90deg, hsl(260 20% 15% / 0.3) 1px, transparent 1px);
-  background-size: 60px 60px;
+    linear-gradient(hsl(260 20% 15% / 0.2) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(260 20% 15% / 0.2) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+
+/* Animated gradient border */
+@keyframes gradient-rotate {
+  0% { --angle: 0deg; }
+  100% { --angle: 360deg; }
+}
+
+.gradient-border-animated {
+  background: conic-gradient(from var(--angle, 0deg), hsl(270 80% 65%), hsl(280 90% 70%), hsl(190 90% 60%), hsl(270 80% 65%));
+  animation: gradient-rotate 4s linear infinite;
 }
 
 /* Smooth scrolling */
