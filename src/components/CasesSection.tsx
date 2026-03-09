@@ -162,6 +162,7 @@ export const CasesSection = () => {
                   {c.desc}
                 </p>
               </div>
+              </div>
             </motion.div>
           ))}
         </div>
