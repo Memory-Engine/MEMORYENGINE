@@ -115,8 +115,11 @@ export const CasesSection = () => {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.1 + i * 0.08 }}
               onClick={() => setExpanded(expanded === i ? null : i)}
-              className="group relative p-6 rounded-2xl border border-border bg-card/30 backdrop-blur-sm hover:border-primary/40 transition-all duration-500 cursor-pointer"
+              className="group relative rounded-2xl cursor-pointer"
             >
+              {/* Gradient border effect */}
+              <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-b from-primary/0 via-primary/0 to-primary/0 group-hover:from-primary/50 group-hover:via-accent/30 group-hover:to-primary/10 transition-all duration-700 opacity-0 group-hover:opacity-100" />
+              <div className="relative p-6 rounded-2xl border border-border bg-card/30 backdrop-blur-sm group-hover:border-transparent group-hover:bg-card/50 transition-all duration-500">
               <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-b from-primary/5 to-transparent" />
 
               <div className="relative z-10">
