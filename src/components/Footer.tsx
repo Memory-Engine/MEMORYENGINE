@@ -2,8 +2,8 @@ export const Footer = () => {
   return (
     <footer className="relative border-t border-border py-12">
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
-        <div className="font-display text-lg font-bold tracking-tight text-foreground">
-          MEMORY<span className="text-primary"> ENGINE</span>
+        <div className="font-display text-lg font-bold tracking-tight">
+          <span className="text-gradient-gold">MEMORY ENGINE</span>
         </div>
 
         <div className="flex items-center gap-6 text-sm text-muted-foreground">
@@ -16,6 +16,14 @@ export const Footer = () => {
             Twitter / X
           </a>
           <a
+            href="https://t.me/memoryengine"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-primary transition-colors"
+          >
+            Telegram
+          </a>
+          <a
             href="https://cal.com/potik"
             target="_blank"
             rel="noopener noreferrer"
@@ -25,8 +33,8 @@ export const Footer = () => {
           </a>
         </div>
 
-        <p className="text-xs text-muted-foreground">
-          © {new Date().getFullYear()} Memory Engine. All rights reserved.
+        <p className="text-xs text-muted-foreground text-center md:text-right max-w-sm">
+          © {new Date().getFullYear()} Memory Engine. We engineer market systems that protocols, users, and capital commit to.
         </p>
       </div>
     </footer>

@@ -1,170 +1,172 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Zap, Settings, Circle, DollarSign } from "lucide-react";
 
 const cases = [
   {
-    name: "Switchboard",
-    tag: "Oracle Infrastructure",
-    stage: "Growth & Ecosystem Expansion",
-    stats: [
-      { value: "20,000+", label: "New Audience" },
-      { value: "5,000+", label: "Discord Members" },
-      { value: "300K+", label: "Impressions" },
-      { value: "3x", label: "ROI" },
-    ],
-    desc: "Expanded cross-platform presence and drove real on-chain participation through 70+ alpha servers, 300+ community collabs, and 15 strategic partnerships.",
-    link: "https://switchboard.xyz/",
-  },
-  {
     name: "EVEDEX",
-    tag: "Perp DEX",
-    stage: "Growth & Engagement",
+    icon: Zap,
+    tag: "Perpetual DEX",
     stats: [
-      { value: "22,000+", label: "New Audience" },
-      { value: "7,000+", label: "Discord Members" },
-      { value: "40K+", label: "Engagements" },
-      { value: "280+", label: "Collabs" },
+      { value: "$5M+", label: "Volume" },
+      { value: "200+", label: "Whales" },
+      { value: "10x", label: "Growth" },
     ],
-    desc: "Scaled high-quality community with viral-ready growth mechanics through 45 alpha calls, 20 strategic partnerships, and coordinated engagement campaigns.",
+    desc: "Built sustainable viral loops that generated $5M+ volume with 200+ whale participants through coordinated alpha activation and community flywheel design.",
     link: "https://evedex.com/",
   },
   {
-    name: "Tonzo",
-    tag: "On-Chain Lottery / TG Mini App",
-    stage: "Pre-Launch → Active Growth",
+    name: "Switchboard",
+    icon: Settings,
+    tag: "Oracle Infrastructure",
     stats: [
-      { value: "50K+", label: "MAU (from 0)" },
-      { value: "16,000", label: "Community" },
-      { value: "756K+", label: "Impressions" },
-      { value: "$40K+", label: "Budget Saved" },
+      { value: "$15K+", label: "Staked" },
+      { value: "3x", label: "ROI" },
+      { value: "20K+", label: "Growth" },
     ],
-    desc: "Full-funnel audit and KOL/streamer campaign with 48 KOLs, 30 live streams, 108 promotional posts, and traffic audit that saved $40K+ in budget.",
-    link: "https://t.me/tonzo_bot",
+    desc: "Drove $15K+ in new staked capital with 3x ROI while strengthening positioning through 70+ alpha servers and 15 strategic partnerships.",
+    link: "https://switchboard.xyz/",
   },
   {
     name: "Concordium",
+    icon: Circle,
     tag: "L1 Blockchain",
-    stage: "Post-Launch",
     stats: [
       { value: "+30%", label: "Price Impact" },
       { value: "150K+", label: "Impressions" },
       { value: "$15.7", label: "CPM" },
-      { value: "50+", label: "Alpha Communities" },
     ],
-    desc: "Activated 50+ high-intent alpha communities and coordinated 25 Tier-1/2 KOLs with structured narrative distribution and synchronized posting.",
+    desc: "Delivered +30% price impact and acquired long-term holders through organic alpha activation across 50+ high-intent communities.",
     link: "https://concordium.com/",
   },
   {
     name: "$FURM",
+    icon: DollarSign,
     tag: "MemeCoin / Efficiency Play",
-    stage: "Mid-Cap / Momentum Recovery",
     stats: [
       { value: "+50%", label: "Market Cap" },
       { value: "250K+", label: "Impressions" },
-      { value: "$2-3M", label: "Campaign Volume" },
-      { value: "0", label: "Dump Pressure" },
+      { value: "$2-3M", label: "Volume" },
     ],
-    desc: "Turned inefficient alpha traffic into real market momentum with 250+ alpha calls, coordinated insight-driven narrative, and clustered timing strategy.",
+    desc: "Turned inefficient alpha traffic into real market momentum with 250+ alpha calls, insight-driven narrative, and clustered timing strategy.",
     link: "https://furmula.games/",
-  },
-  {
-    name: "Bluff",
-    tag: "iGaming Platform",
-    stage: "Growth / Launch Support",
-    stats: [
-      { value: "230K+", label: "Impressions" },
-      { value: "200+", label: "Smart Followers" },
-      { value: ">$5M", label: "Wallet Volume" },
-      { value: "110", label: "FNF Groups" },
-    ],
-    desc: "KOL and streamer-driven campaign with 27 KOLs, 12 live streams, promo creative packs, and coordinated posting schedules for maximum visibility.",
-    link: "https://bluff.com/",
   },
 ];
 
 export const CasesSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const [expanded, setExpanded] = useState<number | null>(null);
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   return (
     <section id="cases" className="relative py-32">
-      <div className="absolute inset-0 bg-gradient-radial opacity-50" />
+      <div className="absolute inset-0 bg-gradient-radial opacity-40" />
 
       <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
-          className="text-center mb-20"
+          className="text-center mb-6"
         >
           <span className="text-primary font-medium text-sm tracking-widest uppercase mb-4 block">
             Case Studies
           </span>
           <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground">
-            Proven <span className="text-primary glow-text">Results</span>
+            See What This Looks Like{" "}
+            <span className="text-gradient-gold">for You</span>
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {cases.map((c, i) => (
-            <motion.div
-              key={c.name}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.1 + i * 0.08 }}
-              onClick={() => setExpanded(expanded === i ? null : i)}
-              className="group relative rounded-2xl cursor-pointer"
-            >
-              {/* Gradient border effect */}
-              <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-b from-primary/0 via-primary/0 to-primary/0 group-hover:from-primary/50 group-hover:via-accent/30 group-hover:to-primary/10 transition-all duration-700 opacity-0 group-hover:opacity-100" />
-              <div className="relative p-6 rounded-2xl border border-border bg-card/30 backdrop-blur-sm group-hover:border-transparent group-hover:bg-card/50 transition-all duration-500">
-              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-b from-primary/5 to-transparent" />
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="text-center text-muted-foreground mb-16 max-w-2xl mx-auto"
+        >
+          Real results for Web3 protocols that fixed their systems before scaling
+        </motion.p>
 
-              <div className="relative z-10">
-                <div className="flex items-start justify-between mb-4">
-                  <div>
-                    <h3 className="font-display text-xl font-bold text-foreground group-hover:text-primary transition-colors">
-                      {c.name}
-                    </h3>
-                    <span className="text-xs text-primary/70 font-mono">{c.tag}</span>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+          {cases.map((c, i) => {
+            const Icon = c.icon;
+            return (
+              <motion.div
+                key={c.name}
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.15 + i * 0.1 }}
+                onMouseEnter={() => setHoveredCard(i)}
+                onMouseLeave={() => setHoveredCard(null)}
+                className="group relative rounded-2xl overflow-hidden cursor-pointer"
+              >
+                {/* Gold border glow on hover */}
+                <div className={`absolute -inset-[1px] rounded-2xl bg-gradient-to-b from-primary/40 via-primary/10 to-primary/5 transition-opacity duration-700 ${
+                  hoveredCard === i ? "opacity-100" : "opacity-0"
+                }`} />
+
+                <div className="relative card-metallic rounded-2xl p-6 h-full flex flex-col transition-all duration-500">
+                  {/* Metallic texture lines */}
+                  <div className="absolute inset-0 rounded-2xl overflow-hidden pointer-events-none">
+                    <div className="absolute inset-0 opacity-[0.03]"
+                      style={{
+                        backgroundImage: `repeating-linear-gradient(
+                          135deg,
+                          transparent,
+                          transparent 1px,
+                          hsl(0 0% 100% / 0.1) 1px,
+                          transparent 2px
+                        )`,
+                        backgroundSize: '4px 4px'
+                      }}
+                    />
                   </div>
-                  <a
-                    href={c.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={(e) => e.stopPropagation()}
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                  </a>
-                </div>
 
-                <span className="inline-block px-3 py-1 text-xs rounded-full bg-primary/10 text-primary border border-primary/20 mb-4">
-                  {c.stage}
-                </span>
-
-                <div className="grid grid-cols-2 gap-3 mb-4">
-                  {c.stats.map((s) => (
-                    <div key={s.label}>
-                      <div className="font-display text-lg font-bold text-primary">
-                        {s.value}
-                      </div>
-                      <div className="text-xs text-muted-foreground">{s.label}</div>
+                  <div className="relative z-10 flex flex-col h-full">
+                    {/* Icon */}
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-4 group-hover:bg-primary/15 group-hover:border-primary/30 transition-all duration-500">
+                      <Icon className="w-5 h-5 text-primary" />
                     </div>
-                  ))}
-                </div>
 
-                <p className={`text-sm text-muted-foreground leading-relaxed transition-all duration-300 ${
-                  expanded === i ? "" : "line-clamp-2"
-                }`}>
-                  {c.desc}
-                </p>
-              </div>
-              </div>
-            </motion.div>
-          ))}
+                    <div className="flex items-start justify-between mb-1">
+                      <h3 className="font-display text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
+                        {c.name}
+                      </h3>
+                      <a
+                        href={c.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="text-muted-foreground hover:text-primary transition-colors mt-1"
+                      >
+                        <ExternalLink className="w-3.5 h-3.5" />
+                      </a>
+                    </div>
+
+                    <span className="text-xs text-primary/60 font-mono mb-5">{c.tag}</span>
+
+                    {/* Divider */}
+                    <div className="w-8 h-[2px] bg-gradient-to-r from-primary/60 to-transparent mb-5" />
+
+                    {/* Stats */}
+                    <div className="space-y-3 mb-5 flex-1">
+                      {c.stats.map((s) => (
+                        <div key={s.label} className="flex items-baseline justify-between">
+                          <span className="text-xs text-muted-foreground">{s.label}</span>
+                          <span className="font-display text-lg font-bold text-primary">{s.value}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Description */}
+                    <p className="text-xs text-muted-foreground leading-relaxed">
+                      {c.desc}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

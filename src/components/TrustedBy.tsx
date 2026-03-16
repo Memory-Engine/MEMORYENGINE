@@ -4,16 +4,10 @@ const clients = [
   "Switchboard",
   "EVEDEX",
   "Concordium",
-  "Bluff",
-  "Tonzo",
-  "Wowmax",
   "$FURM",
   "Switchboard",
   "EVEDEX",
   "Concordium",
-  "Bluff",
-  "Tonzo",
-  "Wowmax",
   "$FURM",
 ];
 
@@ -22,19 +16,17 @@ export const TrustedBy = () => {
     <section className="relative py-16 overflow-hidden border-t border-b border-border/30">
       <div className="max-w-7xl mx-auto px-6 mb-8">
         <p className="text-center text-xs tracking-[0.3em] uppercase text-muted-foreground">
-          Trusted by leading Web3 projects
+          We are trusted by
         </p>
       </div>
 
-      {/* Marquee */}
       <div className="relative">
-        {/* Fade edges */}
         <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10" />
         <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10" />
 
         <motion.div
           animate={{ x: ["0%", "-50%"] }}
-          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
           className="flex gap-12 items-center whitespace-nowrap"
         >
           {clients.map((name, i) => (
