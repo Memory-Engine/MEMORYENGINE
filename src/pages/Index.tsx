@@ -1,12 +1,10 @@
 import { Navbar } from "@/components/Navbar";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { HeroSection } from "@/components/HeroSection";
-import { TrustedBy } from "@/components/TrustedBy";
-import { AboutSection } from "@/components/AboutSection";
-import { ProcessSection } from "@/components/ProcessSection";
-import { ServicesSection } from "@/components/ServicesSection";
 import { CasesSection } from "@/components/CasesSection";
-import { WhyUsSection } from "@/components/WhyUsSection";
+import { NetworkSection } from "@/components/NetworkSection";
+import { GrowthAutopilotSection } from "@/components/GrowthAutopilotSection";
+import { TrustedBy } from "@/components/TrustedBy";
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 import { GradientDivider } from "@/components/GradientDivider";
@@ -19,15 +17,11 @@ const Index = () => {
       <HeroSection />
       <TrustedBy />
       <GradientDivider />
-      <AboutSection />
-      <GradientDivider />
-      <ProcessSection />
-      <GradientDivider />
-      <ServicesSection />
-      <GradientDivider />
       <CasesSection />
       <GradientDivider />
-      <WhyUsSection />
+      <NetworkSection />
+      <GradientDivider />
+      <GrowthAutopilotSection />
       <GradientDivider />
       <CTASection />
       <Footer />

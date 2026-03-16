@@ -1,13 +1,11 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Send } from "lucide-react";
 
 const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Process", href: "#process" },
-  { label: "Services", href: "#services" },
   { label: "Cases", href: "#cases" },
-  { label: "Why Us", href: "#why-us" },
+  { label: "Network", href: "#network" },
+  { label: "Services", href: "#services" },
 ];
 
 export const Navbar = () => {
@@ -32,8 +30,8 @@ export const Navbar = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="#" className="font-display text-xl font-bold tracking-tight text-foreground">
-          MEMORY<span className="text-primary"> ENGINE</span>
+        <a href="#" className="font-display text-xl font-bold tracking-tight">
+          <span className="text-gradient-gold">MEMORY ENGINE</span>
         </a>
 
         {/* Desktop */}
@@ -48,16 +46,24 @@ export const Navbar = () => {
             </a>
           ))}
           <a
+            href="https://t.me/memoryengine"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-muted-foreground hover:text-primary transition-colors duration-300 flex items-center gap-1.5"
+          >
+            <Send className="w-3.5 h-3.5" />
+            Telegram
+          </a>
+          <a
             href="https://cal.com/potik"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-5 py-2.5 text-sm font-medium rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 glow-purple"
+            className="px-5 py-2.5 text-sm font-medium rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 glow-gold"
           >
             Book a Call
           </a>
         </div>
 
-        {/* Mobile toggle */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
           className="md:hidden text-foreground"
@@ -66,7 +72,6 @@ export const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
