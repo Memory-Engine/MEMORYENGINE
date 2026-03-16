@@ -1,20 +1,24 @@
 import { motion } from "framer-motion";
+import logoEvedex from "@/assets/logo-evedex.png";
+import logoSwitchboard from "@/assets/logo-switchboard.png";
+import logoConcordium from "@/assets/logo-concordium.png";
+import logoFurm from "@/assets/logo-furm.png";
 
 const clients = [
-  "Switchboard",
-  "EVEDEX",
-  "Concordium",
-  "$FURM",
-  "Switchboard",
-  "EVEDEX",
-  "Concordium",
-  "$FURM",
+  { name: "EVEDEX", logo: logoEvedex },
+  { name: "Switchboard", logo: logoSwitchboard },
+  { name: "Concordium", logo: logoConcordium },
+  { name: "$FURM", logo: logoFurm },
+  { name: "EVEDEX", logo: logoEvedex },
+  { name: "Switchboard", logo: logoSwitchboard },
+  { name: "Concordium", logo: logoConcordium },
+  { name: "$FURM", logo: logoFurm },
 ];
 
 export const TrustedBy = () => {
   return (
     <section className="relative py-16 overflow-hidden border-t border-b border-border/30">
-      <div className="max-w-7xl mx-auto px-6 mb-8">
+      <div className="max-w-7xl mx-auto px-6 mb-10">
         <p className="text-center text-xs tracking-[0.3em] uppercase text-muted-foreground">
           We are trusted by
         </p>
@@ -26,17 +30,19 @@ export const TrustedBy = () => {
 
         <motion.div
           animate={{ x: ["0%", "-50%"] }}
-          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="flex gap-12 items-center whitespace-nowrap"
+          transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
+          className="flex gap-16 items-center whitespace-nowrap"
         >
-          {clients.map((name, i) => (
+          {clients.map((client, i) => (
             <div
-              key={`${name}-${i}`}
-              className="flex items-center gap-3 px-6 py-3 rounded-xl border border-border/40 bg-card/20 backdrop-blur-sm"
+              key={`${client.name}-${i}`}
+              className="flex items-center gap-3 shrink-0"
             >
-              <div className="w-2 h-2 rounded-full bg-primary/60" />
-              <span className="font-display text-lg font-semibold text-muted-foreground/70">
-                {name}
+              <div className="w-10 h-10 rounded-lg overflow-hidden bg-muted/20">
+                <img src={client.logo} alt={client.name} className="w-full h-full object-cover" />
+              </div>
+              <span className="font-display text-lg font-semibold text-muted-foreground/60">
+                {client.name}
               </span>
             </div>
           ))}
