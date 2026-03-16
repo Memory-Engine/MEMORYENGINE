@@ -3,7 +3,7 @@ import { ScrollProgress } from "@/components/ScrollProgress";
 import { HeroSection } from "@/components/HeroSection";
 import { CasesSection } from "@/components/CasesSection";
 import { NetworkSection } from "@/components/NetworkSection";
-import { GrowthAutopilotSection } from "@/components/GrowthAutopilotSection";
+import { ServicesSection } from "@/components/ServicesSection";
 import { TrustedBy } from "@/components/TrustedBy";
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
@@ -21,7 +21,7 @@ const Index = () => {
       <GradientDivider />
       <NetworkSection />
       <GradientDivider />
-      <GrowthAutopilotSection />
+      <ServicesSection />
       <GradientDivider />
       <CTASection />
       <Footer />

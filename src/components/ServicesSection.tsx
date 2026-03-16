@@ -1,79 +1,43 @@
 import { motion, useInView } from "framer-motion";
-import { useRef, useState } from "react";
-import { Users, Megaphone, Cog } from "lucide-react";
+import { useRef } from "react";
+import { Megaphone, BookOpen, Rocket, Zap, Target, Gem } from "lucide-react";
 
 const services = [
   {
-    icon: Users,
-    title: "TRAFFIC",
-    color: "primary",
-    items: [
-      {
-        name: "Alpha Groups",
-        desc: "Private Discord communities where the most active Web3 participants gather. Your project spreads through people users already trust.",
-      },
-      {
-        name: "Content Creators",
-        desc: "Top-tier authors create deep threads, videos, and reviews around the project, building trust through storytelling.",
-      },
-      {
-        name: "FnF & Cabals",
-        desc: "Exclusive channels for whales, professional traders, and KOLs with high PNL. Real hype and liquidity around your token.",
-      },
-      {
-        name: "High-Intent Streaming",
-        desc: "Top streamers in Crypto/Gambling niches. Emotional traffic that converts users directly during the stream.",
-      },
-      {
-        name: "Strategic Collabs",
-        desc: "Partnerships with major crypto communities using gamified mechanisms for direct overflow of active users.",
-      },
-    ],
-  },
-  {
     icon: Megaphone,
-    title: "MEDIA",
-    color: "accent",
-    items: [
-      {
-        name: "Content Production & Narrative",
-        desc: "We transform complex technologies into investor-friendly narratives with posts and memetic content that resonate.",
-      },
-      {
-        name: "Twitter Authority & Ecosystem",
-        desc: "We turn your X account into a powerful asset — algorithmic visibility, Tier-1 followers (VCs/Founders), key discussions.",
-      },
-      {
-        name: "Strategic Partnerships",
-        desc: "Building relationships that expand the audience and open co-marketing opportunities across ecosystems.",
-      },
-      {
-        name: "Direct AMAs",
-        desc: "Real-time Q&A sessions in partner communities, converting viewers into project supporters.",
-      },
-    ],
+    title: "KOL Management",
+    desc: "2000+ verified KOLs across 10+ languages with on-chain performance tracking.",
   },
   {
-    icon: Cog,
-    title: "PRODUCT",
-    color: "primary",
-    items: [
-      {
-        name: "GTM Strategy & Marketing Mechanics",
-        desc: "We align narrative, tokenomics, and distribution into a unified growth architecture that de-risks your launch.",
-      },
-      {
-        name: "Community Architecture & Retention",
-        desc: "We build on-chain tribes with retention loops, referral mechanics, and value-aligned incentive systems.",
-      },
-    ],
+    icon: BookOpen,
+    title: "Narrative Control",
+    desc: "We craft category-level narratives that position your project as the inevitable choice.",
+  },
+  {
+    icon: Rocket,
+    title: "Viral Growth Engineering",
+    desc: "Coordinated distribution across 200+ FnF circles and whale syndicates.",
+  },
+  {
+    icon: Zap,
+    title: "Community Flywheel Design",
+    desc: "Retention loops, referral mechanics, and value-aligned incentive systems.",
+  },
+  {
+    icon: Target,
+    title: "Strategic Advisory",
+    desc: "GTM strategy, tokenomics alignment, and full launch architecture.",
+  },
+  {
+    icon: Gem,
+    title: "Venture Support & Launchpads",
+    desc: "Strategic introductions and positioning for fundraising and listing.",
   },
 ];
 
 export const ServicesSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const [activeTab, setActiveTab] = useState(0);
 
   return (
     <section id="services" className="relative py-32">
@@ -87,65 +51,47 @@ export const ServicesSection = () => {
           className="text-center mb-16"
         >
           <span className="text-primary font-medium text-sm tracking-widest uppercase mb-4 block">
-            Our Services
+            Services
           </span>
           <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground">
-            Full Spectrum{" "}
-            <span className="text-primary glow-text">Growth Coverage</span>
+            Growth on{" "}
+            <span className="text-gradient-gold">Autopilot</span>
           </h2>
+          <p className="text-muted-foreground mt-4 max-w-xl mx-auto">
+            End-to-end growth infrastructure — from narrative to distribution
+          </p>
         </motion.div>
 
-        {/* Tabs */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex justify-center gap-2 mb-12"
-        >
-          {services.map((s, i) => {
-            const Icon = s.icon;
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {services.map((service, i) => {
+            const Icon = service.icon;
             return (
-              <button
-                key={s.title}
-                onClick={() => setActiveTab(i)}
-                className={`flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-medium transition-all duration-300 ${
-                  activeTab === i
-                    ? "bg-primary text-primary-foreground glow-purple"
-                    : "bg-secondary text-muted-foreground hover:text-foreground hover:bg-secondary/80"
-                }`}
+              <motion.div
+                key={service.title}
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.1 + i * 0.08 }}
+                className="group relative"
               >
-                <Icon className="w-4 h-4" />
-                {s.title}
-              </button>
+                <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-b from-primary/0 to-primary/0 group-hover:from-primary/30 group-hover:to-transparent transition-all duration-700 opacity-0 group-hover:opacity-100" />
+                <div className="relative card-metallic rounded-2xl p-7 h-full transition-all duration-500">
+                  <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-b from-primary/[0.03] to-transparent pointer-events-none" />
+                  <div className="relative z-10">
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-5 group-hover:bg-primary/15 group-hover:border-primary/30 group-hover:shadow-[0_0_20px_hsl(40_92%_52%/0.15)] transition-all duration-500">
+                      <Icon className="w-5 h-5 text-primary" />
+                    </div>
+                    <h3 className="font-display text-lg font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
+                      {service.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {service.desc}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
             );
           })}
-        </motion.div>
-
-        {/* Content */}
-        <motion.div
-          key={activeTab}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
-          {services[activeTab].items.map((item, i) => (
-            <motion.div
-              key={item.name}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: i * 0.08 }}
-              className="p-6 rounded-2xl border border-border bg-card/30 backdrop-blur-sm hover:border-primary/30 transition-all duration-500 group"
-            >
-              <h4 className="font-display text-lg font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">
-                {item.name}
-              </h4>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                {item.desc}
-              </p>
-            </motion.div>
-          ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
