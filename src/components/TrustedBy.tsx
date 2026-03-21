@@ -17,31 +17,31 @@ const clients = [
 
 export const TrustedBy = () => {
   return (
-    <section className="relative py-16 overflow-hidden border-t border-b border-border/30">
-      <div className="max-w-7xl mx-auto px-6 mb-10">
-        <p className="text-center text-xs tracking-[0.3em] uppercase text-muted-foreground">
-          We are trusted by
-        </p>
+    <section className="relative py-16 overflow-hidden">
+      <div className="text-center mb-8">
+        <span className="text-xs text-muted-foreground/50 tracking-[0.3em] uppercase font-medium">
+          Trusted by
+        </span>
       </div>
 
-      <div className="relative">
-        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10" />
-        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10" />
+      <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
 
+      <div className="overflow-hidden">
         <motion.div
+          className="flex gap-16 items-center"
           animate={{ x: ["0%", "-50%"] }}
-          transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
-          className="flex gap-16 items-center whitespace-nowrap"
+          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
         >
-          {clients.map((client, i) => (
+          {[...clients, ...clients].map((client, i) => (
             <div
               key={`${client.name}-${i}`}
-              className="flex items-center gap-3 shrink-0"
+              className="flex items-center gap-3 shrink-0 opacity-40 hover:opacity-70 transition-opacity duration-500"
             >
-              <div className="w-10 h-10 rounded-lg overflow-hidden bg-muted/20">
+              <div className="w-8 h-8 rounded-lg overflow-hidden bg-muted/10">
                 <img src={client.logo} alt={client.name} className="w-full h-full object-cover" />
               </div>
-              <span className="font-display text-lg font-semibold text-muted-foreground/60">
+              <span className="font-display text-sm font-semibold text-foreground/60 whitespace-nowrap">
                 {client.name}
               </span>
             </div>
